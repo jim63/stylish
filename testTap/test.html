@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TapPay</title>
+  <style>
+    .tpfield {
+      height: 40px;
+      width: 300px;
+      border: 1px solid gray;
+      margin: 5px 0;
+      padding: 5px;
+    }
+    .submitButton{
+      width: 200px;
+      height: 70px;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 480px; margin: 50px auto;">
+
+    卡號<div class="tpfield" id="card-number"></div>
+    到期日<div class="tpfield" id="card-expiration-date"></div>
+    末三碼<div class="tpfield" id="card-ccv"></div>
+    <input type="button" class="submitButton" value="Pay" onclick="onClick()" disabled>
+  </div>
+
+
+  <script src="https://js.tappaysdk.com/tpdirect/v4"></script>
+  <script>
+    TPDirect.setupSDK(12348, "app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF", 'sandbox')
+
+    TPDirect.card.setup({
+      fields: {
+        number: {
+          // css selector
+          element: '#card-number',
+          placeholder: '**** **** **** ****'
+        },
+        expirationDate: {
+          // DOM object
+          element: document.getElementById('card-expiration-date'),
+          placeholder: 'MM / YY'
+        },
+        ccv: {
+          element: '#card-ccv',
+          placeholder: '後三碼'
+        }
+      },
+      styles: {
+        // Style all elements
+        'input': {
+          'color': 'gray'
+        },
+        // Styling ccv field
+        'input.cvc': {
+          // 'font-size': '16px'
+        },
+        // Styling expiration-date field
+        'input.expiration-date': {
+          // 'font-size': '16px'
+        },
+        // Styling card-number field
+        'input.card-number': {
+          // 'font-size': '16px'
+        },
+        // style focus state
+        ':focus': {
+          // 'color': 'black'
+        },
+        // style valid state
+        '.valid': {
+          'color': 'green'
+        },
+        // style invalid state
+        '.invalid': {
+          'color': 'red'
+        },
+        // Media queries
+        // Note that these apply to the iframe, not the root window.
+        '@media screen and (max-width: 400px)': {
+          'input': {
+            'color': 'orange'
+          }
+        }
+      }
+    })
+
+
+
+    let submitButton = document.querySelector('.submitButton');
+    console.log(submitButton);
+
+
+    TPDirect.card.onUpdate(() => {
+      console.log(TPDirect.card.getTappayFieldsStatus().canGetPrime);
+      if (TPDirect.card.getTappayFieldsStatus().canGetPrime) {
+        submitButton.removeAttribute('disabled');
+      } else {
+        submitButton.setAttribute('disabled', true)
+      }
+    })
+
+    function onClick() {
+      // 讓 button click 之後觸發 getPrime 方法
+      TPDirect.card.getPrime(function (result) {
+        if (result.status !== 0) {
+          console.err('getPrime 錯誤')
+          return
+        }
+        console.log(result);
+
+        var prime = result.card.prime
+        console.log('getPrime 成功: ' + prime)
+      })
+    }
+
+
+    const Data = {
+      prime: "f5578d4276c3fea267a6e1c0c908c1d7812c5b11ec5d5d71559d7de77b34de32",
+      order: {
+        shipping: "delivery",
+        payment: "credit_card",
+        subtotal: "222",
+        freight: "111",
+        total: "333",
+        recipient: {
+          name: "oledu",
+          phone: "0987654321",
+          email: "1232@321",
+          address: "taipei",
+          time: "morning"
+        },
+        list: [{
+          id: "1231231312312",
+          name: "fejfewfef",
+          price: "499",
+          color: "#ffffff",
+          size: "M",
+          qty: "1"
+        }]
+      }
+    }
+    // {
+    //   name: "淺灰",
+    //   code: "#ffffff"
+    // }
+    const data__Stringify = JSON.stringify(Data);
+    console.log(data__Stringify);
+
+    const URL = 'https://api.appworks-school.tw/api/1.0/order/checkout'
+
+    const othePram = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        'Content-Type': "application/json;charset=UTF-8",
+      },
+      body: data__Stringify,
+      method: "POST"
+    }
+
+    postData(data__Stringify)
+
+    function postData(data) {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("POST", URL);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        xhr.onload = function () {
+          resolve(this.responseText);
+          console.log(this.responseText);
+
+          return this.responseText;
+        }
+        xhr.onerror = function () {
+          reject("Something went wrong!");
+        }
+        xhr.send(data);
+      });
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-135636403-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-135636403-1");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="懂你的時尚品牌" />
+    <title>thankyou</title>
+    <link rel="stylesheet" href="thankyou.css" />
+  </head>
+
+  <body>
+    <div class="header__Container__1080">
+      <img src="./images/logo.png" class="logo__Img" />
+      <nav class="nav">
+        <li class="women__Button"><a href="#">女裝</a></li>
+        <li>|</li>
+        <li class="men__Button"><a href="#">男裝</a></li>
+        <li>|</li>
+        <li class="accessories__Button"><a href="#">配件</a></li>
+      </nav>
+      <div class="noneOnMobile nav__cartAndMember__Container1080">
+        <a href="#">
+          <div class="nav__cartAndMember__Container1080__Div">
+            <img src="./images/cart.png" />
+            <!-- <div class='nav__cartAndMember__Container1080__Amount'>5</div> -->
+          </div>
+        </a>
+        <a href="#"><img src="./images/member.png"/></a>
+      </div>
+    </div>
+    <div class="cartAndMember__Container">
+      <a href="#">
+        <div class="cartAndMember__Container__Cart noneAbove1080">
+          <img src="./images/cart-mobile.png" />
+          <p>購物車</p>
+        </div>
+      </a>
+      <div class="cartAndMember__Container__Sep noneAbove1080">|</div>
+      <a href="#">
+        <div class="cartAndMember__Container__Member noneAbove1080">
+          <img src="./images/member-mobile.png" />
+          <p>會員</p>
+        </div>
+      </a>
+    </div>
+    <label class="search__Container">
+      <input type="text" class="search__Container__Input noneOnMobile" />
+      <img src="./images/search.png" class="search__Container__Img" />
+    </label>
+
+    <div class="thankyou">
+      <h2 style="margin-top:50px;">感謝您的購買</h2>
+      <br />
+      <h3>此訂單編號為 <span class="orderNum"></span></h3>
+    </div>
+
+    <script>
+      let orderNum = document.querySelector(".orderNum");
+      orderNum.innerHTML = document.URL.split("=")[1];
+    </script>
+
+    <footer>
+      <div class="footer__Info">
+        <a href="#">
+          <li>關於 Stylish</li>
+        </a>
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>服務條款</li>
+        </a>
+
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>隱私政策</li>
+        </a>
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>聯絡我們</li>
+        </a>
+
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>FAQ</li>
+        </a>
+      </div>
+      <div class="footer__Connect">
+        <a href="#"> <img src="./images/line.png"/></a>
+        <a href="#"><img src="./images/twitter.png"/></a>
+        <a href="#"> <img src="./images/facebook.png"/></a>
+      </div>
+      <p class="footer__Copyright">© 2018. All right reserved.</p>
+    </footer>
+  </body>
+  <script src="./search.js"></script>
+  <script src="./productRedirect.js"></script>
+</html>

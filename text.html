@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="懂你的時尚品牌" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function httpGetAsync(theUrl, callback) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            console.log(xmlHttp.responseText);
+        };
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.send();
+      }
+      let URL =
+        "https://graph.facebook.com/v3.2/me?fields=id,name,picture.type(large),email&access_token=EAAJfXk8xZCv8BAKwHj1hk04ZBr3z9LZA98qLvxLIHUlZBl2mT7fgQShdYvoqoNhl8ZBGMf7LqNPsKB2tgJ4uKfy0sM29J10ndWgMHfmrU2ZCSrjtuXlpfNgHaQGvIzZC5z2LzUXzStZBxIuz8V8ybZAgbjo3KgRwU53mZCWT5SpSkVrIZAMK8uBxzZAiXJtV2i9ALtOXPDUoptwXmkRn0r97qx1MXOYmuaRQiFmqXbiO8eCAzgZDZD";
+      httpGetAsync(URL);
+    </script>
+  </body>
+</html>

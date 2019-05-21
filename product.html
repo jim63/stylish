@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-135636403-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-135636403-1");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="懂你的時尚品牌" />
+    <title>productPage</title>
+    <link rel="stylesheet" href="./product.css" />
+  </head>
+
+  <body>
+    <div class="header__Container__1080">
+      <img src="./images/logo.png" class="logo__Img" />
+      <nav class="nav">
+        <li class="women__Button"><a href="#">女裝</a></li>
+        <li>|</li>
+        <li class="men__Button"><a href="#">男裝</a></li>
+        <li>|</li>
+        <li class="accessories__Button"><a href="#">配件</a></li>
+      </nav>
+      <div class="noneOnMobile nav__cartAndMember__Container1080">
+        <a href="#">
+          <div class="nav__cartAndMember__Container1080__Div">
+            <img src="./images/cart.png" />
+            <!-- <div class='nav__cartAndMember__Container1080__Amount'>5</div> -->
+          </div>
+        </a>
+        <a href="#"
+          ><img src="./images/member.png" onclick="checkConnected()"
+        /></a>
+      </div>
+    </div>
+    <div class="cartAndMember__Container">
+      <a href="#">
+        <div class="cartAndMember__Container__Cart noneAbove1080">
+          <img src="./images/cart-mobile.png" />
+          <p>購物車</p>
+        </div>
+      </a>
+      <div class="cartAndMember__Container__Sep noneAbove1080">|</div>
+      <a href="#">
+        <div
+          class="cartAndMember__Container__Member noneAbove1080"
+          onclick="checkConnected()"
+        >
+          <img src="./images/member-mobile.png" />
+          <p>會員</p>
+        </div>
+      </a>
+    </div>
+    <label class="search__Container">
+      <input type="text" class="search__Container__Input noneOnMobile" />
+      <img src="./images/search.png" class="search__Container__Img" />
+    </label>
+    <div class="productPage__Container">
+      <div class="productPage__Container__Sub">
+        <div class="productPage__Container__Sub__Img">
+          <img />
+        </div>
+        <div class="productPage__Container__Sub__Info">
+          <div class="productPage__Container__Sub__Info__Sub">
+            <p class="productPage__Container__Sub__Sub__Info__Name"></p>
+            <p class="productPage__Container__Sub__Sub__Info__ID"></p>
+            <p class="productPage__Container__Sub__Sub__Info__Price"></p>
+            <div class="productPage__Container__Sub__Sub__Info__Hr"></div>
+            <div class=" productPage__Container__Sub__Info__Color">
+              <p class="productPage__Container__Sub__Info__Color__Text">
+                顏色 |
+              </p>
+            </div>
+            <div class="productPage__Container__Sub__Info__Size">
+              <div class="productPage__Container__Sub__Info__Color__Size">
+                尺寸 |
+              </div>
+            </div>
+            <div class="productPage__Container__Sub__Info__Amount">
+              <div
+                class="productPage__Container__Sub__Info__Amount__Text noneOnMobile"
+              >
+                <p>數量 |</p>
+              </div>
+              <div class="productPage__Container__Sub__Info__Amount__Container">
+                <div
+                  class="productPage__Container__Sub__Info__Amount__Container__Minus"
+                >
+                  -
+                </div>
+                <div
+                  class="productPage__Container__Sub__Info__Amount__Container__Num"
+                >
+                  1
+                </div>
+                <div
+                  class="productPage__Container__Sub__Info__Amount__Container__Plus"
+                >
+                  +
+                </div>
+              </div>
+            </div>
+            <div class="productPage__Container__Sub__Info__Cart">
+              <p>加入購物車</p>
+            </div>
+            <div class="productPage__Container__Sub__Info__Note">
+              <div
+                class="productPage__Container__Sub__Info__Note__NoResponsibility"
+              ></div>
+              <div
+                class="productPage__Container__Sub__Info__Note__Content"
+              ></div>
+              <div
+                class="productPage__Container__Sub__Info__Note__MadeIn"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="productPage__Container__Detail">
+        <div class="productPage__Container__Detail__Title">
+          <p>細部說明</p>
+          <div class="productPage__Container__Detail__Title__HR"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer__Info">
+        <a href="#">
+          <li>關於 Stylish</li>
+        </a>
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>服務條款</li>
+        </a>
+
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>隱私政策</li>
+        </a>
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>聯絡我們</li>
+        </a>
+
+        <li class="noneOnMobile">|</li>
+        <a href="#">
+          <li>FAQ</li>
+        </a>
+      </div>
+      <div class="footer__Connect">
+        <a href="#"> <img src="./images/line.png"/></a>
+        <a href="#"><img src="./images/twitter.png"/></a>
+        <a href="#"> <img src="./images/facebook.png"/></a>
+      </div>
+      <p class="footer__Copyright">© 2018. All right reserved.</p>
+    </footer>
+    <script src="./productLoadByQueryID.js"></script>
+    <script src="./productHandleStock.js"></script>
+    <script src="./search.js"></script>
+    <script src="./productRedirect.js"></script>
+    <script src="./shoppingCartLocalStorage.js"></script>
+    <script src="./facebookJavaScriptSDK.js"></script>
+
+    <script>
+      shoppingCartLocalStorage();
+    </script>
+  </body>
+</html>

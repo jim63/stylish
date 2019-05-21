@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135636403-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135636403-1');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="懂你的時尚品牌" />
+  <title>cartPage</title>
+  <link rel="stylesheet" href="cartPage.css">
+</head>
+
+<body>
+  <div class="header__Container__1080">
+    <img src="./images/logo.png" class="logo__Img">
+    <nav class="nav">
+      <li class="women__Button"> <a href="#">女裝</a> </li>
+      <li>|</li>
+      <li class="men__Button"> <a href="#">男裝</a> </li>
+      <li>|</li>
+      <li class="accessories__Button"> <a href="#">配件</a> </li>
+    </nav>
+    <div class="noneOnMobile nav__cartAndMember__Container1080">
+      <a href="#">
+        <div class="nav__cartAndMember__Container1080__Div">
+          <img src="./images/cart.png">
+          <!-- <div class='nav__cartAndMember__Container1080__Amount'>5</div> -->
+        </div>
+      </a>
+      <a href="#"><img src="./images/member.png" onclick="checkConnected()"></a>
+    </div>
+
+  </div>
+  <div class="cartAndMember__Container">
+    <a href="#">
+      <div class="cartAndMember__Container__Cart noneAbove1080">
+        <img src="./images/cart-mobile.png">
+        <p>購物車</p>
+      </div>
+    </a>
+    <div class="cartAndMember__Container__Sep noneAbove1080">|</div>
+    <a href="#">
+      <div class="cartAndMember__Container__Member noneAbove1080" onclick="checkConnected()">
+        <img src="./images/member-mobile.png">
+        <p>會員</p>
+      </div>
+    </a>
+  </div>
+  <label class="search__Container">
+    <input type="text" class="search__Container__Input noneOnMobile">
+    <img src="./images/search.png" class="search__Container__Img">
+  </label>
+
+  <div class="cart__Container">
+    <div class="cart__Container__Sub">
+      <p class="cart__Container__Sub__Main noneOnMobile">HOME > BAG</p>
+      <div class="cart__Container__Title">
+        <p>購物車(3)</p>
+        <div class="cart__Container__Title__Right">
+          <p class="noneOnMobile">數量</p>
+          <p class="noneOnMobile">單價</p>
+          <p class="noneOnMobile">小計</p>
+          <p class="noneOnMobile" style="visibility: hidden">小計</p>
+        </div>
+      </div>
+      <div class="cart__Container__HR noneAbove1080"></div>
+
+      <div class="product_All">
+        <!-- <div class="cart__Container__Sub__Total">
+          <div class="cart__Container__Sub__Top">
+            <div class="cart__Container__Sub__Top__Img"><img src="http://18.214.165.31/assets/201807201824/main.jpg"></div>
+            <div class="cart__Container__Sub__Top__Words">
+              <div class="cart__Container__Sub__Top__Words__Title">前開衩扭結洋裝</div>
+              <div class="cart__Container__Sub__Top__Words__Id">03040047</div>
+              <div class="cart__Container__Sub__Top__Words__Color">顏色 | 白</div>
+              <div class="cart__Container__Sub__Top__Words__Size">尺寸 | Ｍ</div>
+            </div>
+          </div>
+          <div class="cart__Container__Sub__Middle noneAbove1080">
+            <div class="cart__Container__Sub__Middle__Amount">數量</div>
+            <div class="cart__Container__Sub__Middle__Price">單價</div>
+            <div class="cart__Container__Sub__Middle__Total">小計</div>
+          </div>
+          <div class="cart__Container__Sub__Bottom">
+            <div class="cart__Container__Sub__bottom__Amount">
+              <select class="cart__Container__Sub__bottom__Amount__Select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="cart__Container__Sub__bottom__Price">NT.590</div>
+            <div class="cart__Container__Sub__bottom__Total">NT.590</div>
+            <div class="cart__Container__Sub__bottom__Delete"><img src="./images/cart-remove.png"></div>
+          </div>
+          <div class="cart__Container__Sub__Bottom__Hr noneAbove1080"></div>
+        </div> -->
+      </div>
+
+      <div class="cart__Container__Sub__Delivery">
+        <div class="cart__Container__Sub__Delivery__Country">配送國家</div>
+        <select class="cart__Container__Sub__Delivery__Select">
+          <option value="tw">台灣及離島</option>
+          <option value="us">美國</option>
+          <option value="jp">日本</option>
+          <option value="vm">越南</option>
+          <option value="ma">馬來西亞</option>
+        </select>
+
+        <div class="cart__Container__Sub__Pay">付款方式</div>
+        <select class="cart__Container__Sub__Pay__Select">
+          <option value="1">宅配貨到付款</option>
+          <option value="2">中國信託</option>
+          <option value="3">國泰世華</option>
+          <option value="4">華南銀行</option>
+          <option value="5">玉山銀行</option>
+        </select>
+      </div>
+
+      <div class="cart__Container__Sub__Notes">
+        <p>✌︎提醒您</p>
+        <p>✌︎選擇宅配-請填寫正確收件人資訊，避免包裹配送不達</p>
+        <p>✌︎選擇超商-請填寫正確收件人姓名(與政見相符)，避免無法領取</p>
+      </div>
+      <div class="cart__Container__Sub__Order">
+        <p class="cart__Container__Sub__Order__Title">訂購資料</p>
+        <div class="cart__Container__Sub__Order__Hr"></div>
+        <div class="info__All">
+          <div class="info__All__Each">
+            <p class="cart__Container__Sub__Order__Name__T">收件人姓名</p>
+            <input type="text" name="" class="cart__Container__Sub__Order__Input__Name" required>
+          </div>
+          <p class="notes" style="font-size:14px;margin-bottom: 20px; color: #8b572a">務必填寫完整收件人姓名，避免包裹無法順利簽收</p>
+          <div class="info__All__Each">
+            <p class="cart__Container__Sub__Order__Phone__T">手機</p>
+            <input type="text" name="" class="cart__Container__Sub__Order__Input__Phone" required>
+          </div>
+          <div class="info__All__Each">
+            <p class="cart__Container__Sub__Order__Address__T">地址</p>
+            <input type="text" name="" class="cart__Container__Sub__Order__Input__Address" required>
+          </div>
+          <div class="info__All__Each">
+            <p class="cart__Container__Sub__Order__Email__T">Email</p>
+            <input type="text" name="" class="cart__Container__Sub__Order__Input__Email" required>
+          </div>
+          <div class="info__All__Each">
+            <p class="cart__Container__Sub__Order__Time__T">配送時間</p>
+            <div class="cart__Container__Sub__Order__Time">
+              <div class="cart__Container__Sub__Order__Time__Each">
+                <input type="radio" id="0812" name="drone" value="morning" checked>
+                <label for="0812">08:00~12:00</label>
+              </div>
+              <div class="cart__Container__Sub__Order__Time__Each">
+                <input type="radio" id="1418" name="drone" value="afternoon">
+                <label for="1418">14:00~18:00</label>
+              </div>
+              <div class="cart__Container__Sub__Order__Time__Each">
+                <input type="radio" id="any" name="drone" value="anyway">
+                <label for="any">不指定</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart__Container__Sub__Order__Time__Hr"></div>
+      </div>
+
+
+
+      <div class="checkOutToTal">
+
+        <div class="checkOutToTal__CreditCard">
+          卡號<div class="tpfield" id="card-number"></div>
+          到期日<div class="tpfield" id="card-expiration-date"></div>
+          末三碼<div class="tpfield" id="card-ccv"></div>
+          <!-- <input type="button" class="submitButton" value="Pay" onclick="onClick()" disabled> -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="cart__Container__Sub__Checkout">
+          <div class="cart__Container__Sub__Checkout__Total__Container">
+            <p class="cart__Container__Sub__Checkout__Total__T">總金額</p>
+            <div class="NT__Container">
+              <p class="NT">NT. </p>
+              <p class="cart__Container__Sub__Checkout__Total"> 0</p>
+            </div>
+          </div>
+          <div class="cart__Container__Sub__Checkout__Shippting__Container">
+            <p class="cart__Container__Sub__Checkout__Shipping__T">運費</p>
+            <div class="NT__Container">
+              <p class="NT">NT. </p>
+              <p class="cart__Container__Sub__Checkout__Shipping">0</p>
+            </div>
+          </div>
+          <div class="cart__Container__Sub__Checkout__Shipping__Hr"></div>
+          <div class="cart__Container__Sub__Checkout__All__Container">
+            <p class="cart__Container__Sub__Checkout__All__T">應付金額 </p>
+            <div class="NT__Container">
+              <p class="NT">NT. </p>
+              <p class="cart__Container__Sub__Checkout__All">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input class="payButton submitButton" value="確認付款" type="submit" onclick="onClick()"></input>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer__Info">
+      <a href="#">
+        <li>關於 Stylish</li>
+      </a>
+      <li class="noneOnMobile">|</li>
+      <a href="#">
+        <li>服務條款</li>
+      </a>
+
+      <li class="noneOnMobile">|</li>
+      <a href="#">
+        <li>隱私政策</li>
+      </a>
+      <li class="noneOnMobile">|</li>
+      <a href="#">
+        <li>聯絡我們</li>
+      </a>
+
+      <li class="noneOnMobile">|</li>
+      <a href="#">
+        <li>FAQ</li>
+      </a>
+    </div>
+    <div class="footer__Connect">
+      <a href="#"> <img src="./images/line.png"></a>
+      <a href="#"><img src="./images/twitter.png"></a>
+      <a href="#"> <img src="./images/facebook.png"></a>
+    </div>
+    <p class="footer__Copyright">© 2018. All right reserved. </p>
+  </footer>
+</body>
+<script src="./shoppingCartLocalStorage.js"></script>
+<script src="./search.js"></script>
+<script src="./productRedirect.js"></script>
+<script src="./cartPage.js"></script>
+<script src="https://js.tappaysdk.com/tpdirect/v4"></script>
+<script src="./facebookJavaScriptSDK.js"></script>
+<script src="./cartPageAutoFill.js"></script>
+
+<!-- <script>
+  function checkConnected() {
+    FB.getLoginStatus(function (response) {
+      if (response.status === 'connected') {
+        window.location.href = `./member.html`;
+      } else {
+        console.log(123);
+        fbLogin();
+      }
+    });
+  }
+
+  function fbLogin() {
+    FB.login(function (response) {
+      // Handle the response object, like in statusChangeCallback() in our demo
+      // code.
+      console.log('fbLogin', response.status);
+    });
+  }
+  shoppingCartLocalStorage()
+
+</script> -->
+
+<script>
+  TPDirect.setupSDK(12348, "app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF", 'sandbox')
+
+  TPDirect.card.setup({
+    fields: {
+      number: {
+        // css selector
+        element: '#card-number',
+        placeholder: '**** **** **** ****'
+      },
+      expirationDate: {
+        // DOM object
+        element: document.getElementById('card-expiration-date'),
+        placeholder: 'MM / YY'
+      },
+      ccv: {
+        element: '#card-ccv',
+        placeholder: '後三碼'
+      }
+    },
+    styles: {
+      // Style all elements
+      'input': {
+        'color': 'gray'
+      },
+      // Styling ccv field
+      'input.cvc': {
+        // 'font-size': '16px'
+      },
+      // Styling expiration-date field
+      'input.expiration-date': {
+        // 'font-size': '16px'
+      },
+      // Styling card-number field
+      'input.card-number': {
+        // 'font-size': '16px'
+      },
+      // style focus state
+      ':focus': {
+        // 'color': 'black'
+      },
+      // style valid state
+      '.valid': {
+        'color': 'green'
+      },
+      // style invalid state
+      '.invalid': {
+        'color': 'red'
+      },
+      // Media queries
+      // Note that these apply to the iframe, not the root window.
+      '@media screen and (max-width: 400px)': {
+        'input': {
+          'color': 'orange'
+        }
+      }
+    }
+  })
+
+
+
+  let submitButton = document.querySelector('.submitButton');
+
+
+  TPDirect.card.onUpdate(() => {
+    console.log(TPDirect.card.getTappayFieldsStatus().canGetPrime);
+    if (TPDirect.card.getTappayFieldsStatus().canGetPrime) {
+      submitButton.removeAttribute('disabled');
+    } else {
+      submitButton.setAttribute('disabled', true)
+    }
+  })
+
+  function onClick() {
+    let name = document.querySelector('.cart__Container__Sub__Order__Input__Name').value;
+    let phoneNumber = document.querySelector('.cart__Container__Sub__Order__Input__Phone').value;
+    let address = document.querySelector('.cart__Container__Sub__Order__Input__Address').value;
+
+    if (name.length === 0) {
+      alert('請輸入姓名')
+    } else if (phoneNumber.length === 0) {
+      alert('請輸入電話號碼')
+    } else if (address.length === 0) {
+      alert('請輸入地址')
+    } else {
+      TPDirect.card.getPrime(function (result) {
+        if (result.status !== 0) {
+          console.err('getPrime 錯誤')
+          return
+        }
+        console.log(result);
+
+        var prime = result.card.prime;
+        alert(prime)
+        getOrderNum(prime);
+      })
+    }
+
+
+    function getOrderNum(prime) {
+      let cartData = JSON.parse(localStorage.getItem('shoppingCart'));
+      let itemList = [];
+      cartData.forEach(element => {
+        const eachInfo = {};
+        eachInfo.id = element.id;
+        eachInfo.name = element.name;
+        eachInfo.qty = element.amount;
+        eachInfo.color = element.color;
+        eachInfo.size = element.size;
+        itemList.push(eachInfo);
+      });
+
+      order = {};
+
+      let shippingInfo = document.querySelector('.cart__Container__Sub__Delivery__Select').value;
+      let payment = document.querySelector('.cart__Container__Sub__Pay__Select').value
+      let subTotal = document.querySelector('.cart__Container__Sub__Checkout__Total').innerHTML;
+      let freight = document.querySelector('.cart__Container__Sub__Checkout__Shipping').innerHTML;
+      let total = document.querySelector('.cart__Container__Sub__Checkout__All').innerHTML;
+
+      let recipient = {};
+      recipient.name = document.querySelector('.cart__Container__Sub__Order__Input__Name').value;
+      recipient.phone = document.querySelector('.cart__Container__Sub__Order__Input__Phone').value;
+      recipient.address = document.querySelector('.cart__Container__Sub__Order__Input__Address').value;
+      recipient.time = document.querySelector('input[name=drone]').value;
+      recipient.email = document.querySelector('.cart__Container__Sub__Order__Input__Email').value;
+
+      order.shipping = shippingInfo;
+      order.payment = payment;
+      order.subTotal = subTotal;
+      order.freight = freight;
+      order.total = total;
+      order.recipient = recipient;
+      order.list = itemList;
+
+      const Data = {
+        prime: prime,
+        order
+      }
+
+      const data__Stringify = JSON.stringify(Data);
+
+
+      FB.getLoginStatus(function (response) {
+        postData(data__Stringify, response);
+      })
+
+
+      function postData(data, FBresponse) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+
+          xhr.open("POST", 'https://api.appworks-school.tw/api/1.0/order/checkout');
+          xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+          if (FBresponse.status === 'connected') {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + FBresponse.authResponse.accessToken)
+            console.log('Authorization');
+          }
+
+          xhr.onload = function () {
+            resolve(this.responseText);
+            // console.log(this.responseText);
+            let id = JSON.parse(this.responseText).data.number;
+            // alert(this.responseText);
+            let storageArray = [];
+            localStorage.setItem('shoppingCart', JSON.stringify(storageArray));
+
+            window.location.href = `./thankyou.html?orderNum=${id}`;
+
+          }
+          xhr.onerror = function () {
+            reject("Something went wrong!");
+          }
+          xhr.send(data);
+        });
+      }
+    }
+  }
+
+</script>
+
+
+<script>
+  shoppingCartLocalStorage();
+  cartPage();
+
+</script>
+
+</html>
